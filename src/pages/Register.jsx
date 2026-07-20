@@ -1,12 +1,12 @@
 import Navbar from "../component/Navbar";
 
-const Register = () => {
+export default function Register (){
   return (
-    <div className="bg-">
+    <div className="">
         <Navbar />
-      <h1>Register</h1>
+
     </div>
   );
 };
 
-export default Register;
+
