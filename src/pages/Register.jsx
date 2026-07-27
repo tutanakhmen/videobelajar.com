@@ -1,10 +1,10 @@
 import Form from "../component/Form";
-import Navbar from "../component/Navbar";
+import Navbar from "../component/navbar";
 
 export default function Register() {
   return (
     <div className="">
-      <Navbar />
+      <Navbar pages="register"/>
       <main className="w-full max-w-3xl mx-auto">
         <Form auth="register" />
       </main>

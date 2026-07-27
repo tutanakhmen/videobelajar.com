@@ -1,11 +1,11 @@
 import Form from "../component/Form"
-import Navbar from "../component/Navbar"
+import Navbar from "../component/navbar"
 
 
 const Login = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar pages="login"/>
       <div className="w-full max-w-3xl mx-auto ">
       <Form auth="login"/> 
 

@@ -40,7 +40,7 @@ export default function Form({ auth }) {
           <div className="flex flex-col">
             <label htmlFor="phone">No HP</label>
             <div className="flex flex-row">
-              <select name="country" id="">
+              <select name="country" id="" className="p-1 px-3 mr-1 border border-[#F1F1F1] border-solid rounded-md">
                 <option value="id">+62</option>
                 <option value="usa">+1</option>
                 <option value="sg">+65</option>
@@ -66,8 +66,11 @@ export default function Form({ auth }) {
 
       <span>atau</span>
       <Button variant="default">
-        <img src={logoGoogle} alt=""  />
+        <div className="flex items-center justify-center gap-1.5">
+        <img src={logoGoogle} alt="" className="w-5 h-5 "/>
         masuk dengan Google
+          
+        </div>
       </Button>
     </div>
   );
