@@ -1,4 +1,4 @@
-import Card from "../component/Card";
+import Cards from "../component/Cards";
 import Hero from "../component/Hero";
 import Navbar from "../component/navbar";
 
@@ -7,9 +7,9 @@ const Home = () => {
   return (
     <div>
       <Navbar pages="home" />
-      <div className="m-2">
+      <div>
       <Hero />
-      <Card />
+      <Cards />
         
       </div>
       <h1>Home</h1>

@@ -1,11 +1,13 @@
 
 export default function Button({ onClick, children, variant }) {
-    const colors = {
-        primary: "text-white bg-[#3ECF4C]",
-        secondary: "text-[#3ECF4C] bg-[#E2FCD9CC]",
-        default: "text-black bg-white border border-black"
+    const type = {
+        primary: "text-white bg-[#3ECF4C] p-1.5 w-full rounded-lg",
+        secondary: "text-[#3ECF4C] bg-[#E2FCD9CC] p-1.5 w-full rounded-lg",
+        default: "text-black bg-white border border-[#F1F1F1] p-1.5 w-full rounded-lg",
+        registerHome: "bg-white text-[#3ECF4C] border-[0.5px] border-solid border-[#3ECF4C] font-semibold rounded-lg px-3 py-1",
+        loginHome: "text-white bg-[#3ECF4C] font-semibold px-4 py-1.5 rounded-lg",
+        category: "text-[#333333AD] px-4 py-1 font-medium",
     }
-    console.log(colors[variant])
-  return <button className={`mt-2 p-1.5 w-full ${colors[variant]} rounded-lg`}
+  return <button className={`${type[variant]}`}
   onClick={onClick}>{children}</button>;
 }
