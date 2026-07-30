@@ -3,7 +3,7 @@ import bgHero from "../assets/hero.jpg";
 const Hero = () => {
   return (
     <div
-      className="xl:container xl:mx-auto m-2 flex items-center justify-center text-center h-100 gap-4 p-5 rounded-lg bg-cover bg-center  text-white"
+      className="xl:container xl:mx-auto m-2 flex items-center justify-center text-center h-100 gap-4 p-4 rounded-lg bg-cover bg-center  text-white"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7)), url(${bgHero})`,
       }}

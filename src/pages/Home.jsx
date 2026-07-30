@@ -1,20 +1,19 @@
 import Cards from "../component/Cards";
+import Footer from "../component/Footer";
 import Hero from "../component/Hero";
 import Navbar from "../component/navbar";
+import Newsletter from "../component/Newslettter";
 
 const Home = () => {
- 
   return (
     <div>
       <Navbar pages="home" />
-      <div>
-      <Hero />
-      <Cards />
-        
-      </div>
-      <h1>Home</h1>
-     
-   
+      <main className="m-1">
+        <Hero />
+        <Cards />
+        <Newsletter />
+      </main>
+      <Footer />
     </div>
   );
 };

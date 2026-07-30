@@ -40,7 +40,11 @@ export default function Form({ auth }) {
           <div className="flex flex-col">
             <label htmlFor="phone">No HP</label>
             <div className="flex flex-row">
-              <select name="country" id="" className="p-1 px-3 mr-1 border border-[#F1F1F1] border-solid rounded-md">
+              <select
+                name="country"
+                id=""
+                className="p-1 px-3 mr-1 border border-[#F1F1F1] border-solid rounded-md"
+              >
                 <option value="id">+62</option>
                 <option value="usa">+1</option>
                 <option value="sg">+65</option>
@@ -57,21 +61,27 @@ export default function Form({ auth }) {
             <Input type="password" id="confirm" name="confirm" />
           </div>
         )}
-      </form>
-      <a href="*" className="self-end text-sm text-[#333333AD] ">
-        Lupa Password?
-      </a>
-      <Button onClick={btnLogin} variant="primary">Masuk</Button>
-      <Button onClick={btnRegister} variant="secondary">Register</Button>
-
-      <span>atau</span>
-      <Button variant="default">
-        <div className="flex items-center justify-center gap-1.5">
-        <img src={logoGoogle} alt="" className="w-5 h-5 "/>
-        masuk dengan Google
-          
+        <a href="*" className="self-end text-sm text-[#333333AD] ">
+          Lupa Password?
+        </a>
+        <div className="flex flex-col gap-3">
+          <Button onClick={btnLogin} variant="primary">
+            Masuk
+          </Button>
+          <Button onClick={btnRegister} variant="secondary">
+            Register
+          </Button>
+          <span className="before:content-[''] before:h-px before:flex-1 before:bg-gray-400 after:content-[''] after:h-px after:flex-1 after:bg-gray-400 flex items-center gap-3 w-full">
+            <span className="">atau</span>
+          </span>
+          <Button variant="default">
+            <div className="flex items-center justify-center gap-1.5">
+              <img src={logoGoogle} alt="" className="w-5 h-5 " />
+              masuk dengan Google
+            </div>
+          </Button>
         </div>
-      </Button>
+      </form>
     </div>
   );
 }

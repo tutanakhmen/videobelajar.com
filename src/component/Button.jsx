@@ -7,6 +7,7 @@ export default function Button({ onClick, children, variant }) {
         registerHome: "bg-white text-[#3ECF4C] border-[0.5px] border-solid border-[#3ECF4C] font-semibold rounded-lg px-3 py-1",
         loginHome: "text-white bg-[#3ECF4C] font-semibold px-4 py-1.5 rounded-lg",
         category: "text-[#333333AD] px-4 py-1 font-medium",
+        newsletter: "bg-[#FFBD3A] text-white rounded-lg py-2 md:absolute right-1 top-1 bottom-1 px-4 md:py-0"
     }
   return <button className={`${type[variant]}`}
   onClick={onClick}>{children}</button>;
