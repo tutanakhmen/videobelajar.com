@@ -9,6 +9,6 @@ export default function Button({ onClick, children, variant }) {
         category: "text-[#333333AD] px-4 py-1 font-medium",
         newsletter: "bg-[#FFBD3A] text-white rounded-lg py-2 md:absolute right-1 top-1 bottom-1 px-4 md:py-0"
     }
-  return <button className={`${type[variant]}`}
+  return <button className={`cursor-pointer ${type[variant]}`}
   onClick={onClick}>{children}</button>;
 }

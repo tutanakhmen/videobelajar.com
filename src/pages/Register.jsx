@@ -8,7 +8,6 @@ export default function Register() {
       <main className="w-full max-w-3xl mx-auto">
         <Form auth="register" />
       </main>
-      <h1>Register</h1>
     </div>
   );
 }

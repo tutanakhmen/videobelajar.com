@@ -11,7 +11,7 @@ export default function FooterColumn({ title, links }) {
     )
   }
   return (
-    <div className="">
+    <div className="md:m-4">
       <div className="relative">
         <h3 className="text-base font-bold">
           {title}
@@ -22,7 +22,7 @@ export default function FooterColumn({ title, links }) {
       </div>
       <ul className="hidden text-[#333333AD] md:flex flex-col gap-2">
         {links.map((link) => {
-          return <li className="hover:text-black" key={link}>{link}</li>;
+          return <li className="hover:text-black cursor-pointer" key={link}>{link}</li>;
         })}
       </ul>
     </div>
