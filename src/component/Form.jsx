@@ -75,10 +75,7 @@ export default function Form({ auth }) {
             <span className="">atau</span>
           </span>
           <Button variant="default">
-            <div className="flex items-center justify-center gap-1.5">
-              <img src={logoGoogle} alt="" className="w-5 h-5 " />
-              masuk dengan Google
-            </div>
+            <div className="flex items-center justify-center gap-1.5"><img src={logoGoogle} alt="" className="w-5 h-5" />masuk dengan Google</div>
           </Button>
         </div>
       </form>

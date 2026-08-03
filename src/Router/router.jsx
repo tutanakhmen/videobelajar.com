@@ -3,6 +3,7 @@ import App from "../App";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Page404 from "../pages/Page404";
+import Category from "../pages/Category";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
       {
         path: "login", 
         element: <Login /> 
+      },
+
+      {
+        path: "category", 
+        element: <Category />
       }
     ],
   },
