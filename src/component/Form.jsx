@@ -17,7 +17,6 @@ export default function Form({ auth }) {
     const key = e.target.name;
     const value = e.target.value;
     setData({ ...data, [key]: value });
-    console.log(data);
   }
   const navigate = useNavigate();
   const islogin = auth === "login";
@@ -30,6 +29,47 @@ export default function Form({ auth }) {
     islogin && navigate("/register");
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const api = "https://6a69825cb2789286ad709a92.mockapi.io/users";
+
+    try {
+      if (islogin) {
+        const res = await fetch(api);
+        const users = await res.json();
+
+        const loginUser = users.find(
+          (u) => u.email == data.email && u.password == data.password,
+        );
+
+        // simpan data ke local storage
+        localStorage.setItem("currentUser", JSON.stringify(loginUser))
+
+        if (loginUser) {
+          navigate("/");
+        } else {
+          alert("email atau password kamu salah");
+        }
+
+      } else {
+        await fetch(api, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nama: data.nama,
+            email: data.email,
+            phone: data.phone,
+            password: data.password,
+          }),
+        });
+        alert("registrasi akun berhasil");
+        navigate("/login");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className="flex flex-col justify-center items-center p-4 mx-4 my-6 bg-white gap-1">
       <h2 className="text-2xl font-semibold">
@@ -40,7 +80,11 @@ export default function Form({ auth }) {
           ? " Yuk, lanjutin belajarmu di videobelajar."
           : "Yuk, daftarkan akunmu sekarang juga!"}
       </p>
-      <form action="" className="flex flex-col w-full gap-1">
+      <form
+        onSubmit={handleSubmit}
+        action=""
+        className="flex flex-col w-full gap-1"
+      >
         {!islogin && (
           <div className="flex flex-col">
             <label htmlFor="nama">Nama Lengkap</label>

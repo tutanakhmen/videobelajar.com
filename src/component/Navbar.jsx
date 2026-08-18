@@ -2,14 +2,20 @@ import { Link, useNavigate } from "react-router";
 import logoImage from "../assets/Logo.png";
 import { useState } from "react";
 import Button from "./Button";
+import profileImage from "../assets/profile.png"
 
 export default function Navbar({ pages }) {
   const loginPages = pages === "login";
   const registerPages = pages === "register";
   const isAuth = loginPages || registerPages;
+  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState(() => {
+    const user = localStorage.getItem("currentUser");
+    return user ? JSON.parse(user) : null;
+  });
+  console.log(currentUser);
 
   function hamburger() {
     setIsMenuOpen(!isMenuOpen);
@@ -48,12 +54,21 @@ export default function Navbar({ pages }) {
               <Button onClick={btnCategory} variant="category">
                 Kategori
               </Button>
-              <Button onClick={btnLogin} variant="loginHome">
-                Login
-              </Button>
-              <Button onClick={btnRegister} variant="registerHome">
-                Register
-              </Button>
+
+              {currentUser ? (
+                <Link to="/profile" className="flex flex-col items-center">
+                <img src={profileImage} alt="" className="object-cover w-11 rounded-lg "/>
+                </Link>
+              ) : (
+                <>
+                  <Button onClick={btnLogin} variant="loginHome">
+                    Login
+                  </Button>
+                  <Button onClick={btnRegister} variant="registerHome">
+                    Register
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
@@ -62,12 +77,19 @@ export default function Navbar({ pages }) {
             <Button onClick={btnCategory} variant="category">
               Kategori
             </Button>
-            <Button onClick={btnLogin} variant="loginHome">
-              Masuk
-            </Button>
-            <Button onClick={btnRegister} variant="registerHome">
-              Register
-            </Button>
+
+            {currentUser ? (
+              <span>{currentUser.nama}</span>
+            ) : (
+              <>
+                <Button onClick={btnLogin} variant="loginHome">
+                  Masuk
+                </Button>
+                <Button onClick={btnRegister} variant="registerHome">
+                  Register
+                </Button>
+              </>
+            )}
           </div>
         )}
       </div>
