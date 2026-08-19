@@ -79,7 +79,7 @@ export default function Navbar({ pages }) {
             </Button>
 
             {currentUser ? (
-              <span>{currentUser.nama}</span>
+              <span className="text-sm font-medium text-center">{currentUser.nama}</span>
             ) : (
               <>
                 <Button onClick={btnLogin} variant="loginHome">
