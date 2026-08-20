@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import logoImage from "../assets/Logo.png";
 import { useState } from "react";
 import Button from "./Button";
-import profileImage from "../assets/profile.png"
+import profileImage from "../assets/profile.png";
 
 export default function Navbar({ pages }) {
   const loginPages = pages === "login";
@@ -15,7 +15,6 @@ export default function Navbar({ pages }) {
     const user = localStorage.getItem("currentUser");
     return user ? JSON.parse(user) : null;
   });
-  console.log(currentUser);
 
   function hamburger() {
     setIsMenuOpen(!isMenuOpen);
@@ -33,8 +32,12 @@ export default function Navbar({ pages }) {
     navigate("/category");
   }
 
+  function btnLogout() {
+    localStorage.removeItem("currentUser");
+  }
+
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="sticky top-0 bg-white shadow-sm">
       <div className="container mx-auto p-3 flex justify-between items-center relative">
         <Link to="/">
           <img src={logoImage} alt="" className="w-34" />
@@ -42,7 +45,7 @@ export default function Navbar({ pages }) {
 
         {!isAuth && (
           <div className="flex flex-row items-center justify-center">
-            <button onClick={hamburger} className="md:hidden">
+            <button onClick={hamburger} className="md:hidden" type="button">
               <div className="flex flex-col gap-1">
                 <span className="w-7 h-1 bg-[#4A505C] rounded-2xl"></span>
                 <span className="w-7 h-1 bg-[#4A505C] rounded-2xl"></span>
@@ -50,14 +53,18 @@ export default function Navbar({ pages }) {
               </div>
             </button>
 
-            <div className="hidden md:flex flex-row items-center gap-2">
+            <div className="hidden md:flex flex-row items-center gap-1">
               <Button onClick={btnCategory} variant="category">
                 Kategori
               </Button>
 
               {currentUser ? (
                 <Link to="/profile" className="flex flex-col items-center">
-                <img src={profileImage} alt="" className="object-cover w-11 rounded-lg "/>
+                  <img
+                    src={profileImage}
+                    alt=""
+                    className="object-cover w-11 rounded-lg "
+                  />
                 </Link>
               ) : (
                 <>
@@ -73,19 +80,28 @@ export default function Navbar({ pages }) {
           </div>
         )}
         {isMenuOpen && (
-          <div className="flex flex-col absolute top-10 right-2 gap-0.5 px-3 py-2 bg-white rounded-lg">
+          <div className="flex flex-col absolute top-10 right-2 px-3 py-2 bg-white rounded-lg text-center min-w-35 divide-y">
             <Button onClick={btnCategory} variant="category">
               Kategori
             </Button>
 
             {currentUser ? (
-              <span className="text-sm font-medium text-center">{currentUser.nama}</span>
+              <>
+                <Link to="profile">
+                  <Button variant="category">My Profile</Button>
+                </Link>
+                <Link to="login">
+                  <Button onClick={btnLogout} variant="category">
+                    Logout
+                  </Button>
+                </Link>
+              </>
             ) : (
               <>
-                <Button onClick={btnLogin} variant="loginHome">
-                  Masuk
+                <Button onClick={btnLogin} variant="category">
+                  Login
                 </Button>
-                <Button onClick={btnRegister} variant="registerHome">
+                <Button onClick={btnRegister} variant="category">
                   Register
                 </Button>
               </>

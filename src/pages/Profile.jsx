@@ -1,12 +1,12 @@
+import ProfileCard from "../component/ProfileCard";
+import Sidebar from "../component/Sidebar";
 
 const Profile = () => {
   return (
-    <div className="container mx-auto flex flex-col">
-      <div className="w-66 bg-white">
-        <h1>sidebar</h1>
-      </div>
-      <div>
-        <h1>card profile</h1>
+    <div className="container mx-auto flex flex-col md:flex-row">
+      <Sidebar />
+      <div className="w-full m-3">
+       <ProfileCard />
       </div>
     </div>
   );

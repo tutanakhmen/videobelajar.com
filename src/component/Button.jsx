@@ -6,8 +6,9 @@ export default function Button({ onClick, children, variant, type }) {
         default: "text-black bg-white border border-[#F1F1F1] p-1.5 w-full rounded-lg",
         registerHome: "bg-white text-[#3ECF4C] border-[0.5px] border-solid border-[#3ECF4C] font-semibold rounded-lg px-3 py-1",
         loginHome: "text-white bg-[#3ECF4C] font-semibold px-4 py-1.5 rounded-lg",
-        category: "text-[#333333AD] px-4 py-1 font-medium",
-        newsletter: "bg-[#FFBD3A] text-white rounded-lg py-2 md:absolute right-1 top-1 bottom-1 px-4 md:py-0"
+        category: "text-[#333333AD] px-2 py-1 font-medium",
+        newsletter: "bg-[#FFBD3A] text-white rounded-lg py-2 md:absolute right-1 top-1 bottom-1 px-4 md:py-0",
+        logout: "bg-[#d1422c] w-full px-2 py-1 rounded-lg mt-2 text-white font-medium "
     }
   return <button type={type} className={`cursor-pointer ${style[variant]}`}
   onClick={onClick}>{children}</button>;
