@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 import FooterColumn from "../helper/FooterColumn";
 import SocialMedia from "../helper/SocialMedia";
 import linkedin from "../assets/socialMedia/linkedinLogo.png";

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import Button from "./Button";
-import Input from "./Input";
 import profileImage from "../assets/profile.png";
 
 function logout() {
